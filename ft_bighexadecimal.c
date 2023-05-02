@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_bighexadecimal.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcampos- <lcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 17:39:54 by lcampos-          #+#    #+#             */
-/*   Updated: 2023/05/02 15:14:51 by lcampos-         ###   ########.fr       */
+/*   Created: 2023/05/02 15:28:09 by lcampos-          #+#    #+#             */
+/*   Updated: 2023/05/02 15:33:57 by lcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(int c, int *length)
+void	ft_bighexadecimal(long int c, int *length)
 {
-	*length += 1;
-	write(1, &c, 1);
+	char	*bighex;
+
+	bighex = "0123456789ABCDEF";
+	if (c / 16 == 0)
+		ft_putchar(bighex[c % 16], length);
+	else
+	{
+		ft_bighexadecimal(c / 16, length);
+		ft_putchar(bighex[c % 16], length);
+	}
 }

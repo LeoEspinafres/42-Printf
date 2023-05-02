@@ -7,10 +7,12 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
 SRC = 	ft_putchar.c \
-		ft_whileloop.c \
+		ft_printf.c \
 		ft_putstr.c \
+		ft_smallhexadecimal.c \
+		ft_bighexadecimal.c \
 		ft_putnbr.c \
-		ft_puthex.c
+		ft_putaddress.c
 
 OBJ = $(SRC:.c=.o)
 

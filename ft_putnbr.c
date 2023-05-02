@@ -3,37 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Leo <leonorjoaquim98@gmail.com>            +#+  +:+       +#+        */
+/*   By: lcampos- <lcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/27 16:03:56 by Leo               #+#    #+#             */
-/*   Updated: 2023/04/27 16:03:56 by Leo              ###   ########.fr       */
+/*   Created: 2023/05/02 15:12:02 by lcampos-          #+#    #+#             */
+/*   Updated: 2023/05/02 16:13:24 by lcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putunsignednbr(unsigned int c, int *length)
+void	ft_putnbr(long c, int *length)
 {
-	if (c > 9)
-	{
-		ft_putunsignednbr(c / 10, length);
-		ft_putunsignednbr(c % 10, length);
-	}
-	else
-		ft_putchar((c + '0'), length);
-
-}
-
-void	ft_putnbr(int c, int *length)
-{
-	if (c == 'u')
-		ft_putunsignednbr(c, length);
-	
-	if(c == -2147483648)
-	{
-		write(1, "-2147483648", 11);
-		return ;
-	}
 	if (c < 0)
 	{
 		ft_putchar('-', length);
@@ -41,9 +21,9 @@ void	ft_putnbr(int c, int *length)
 	}
 	if (c > 9)
 	{
-		ft_putnbr((c / 10), length);
-		ft_putnbr((c % 10), length);
+		ft_putnbr(c / 10, length);
+		ft_putnbr(c % 10, length);
 	}
 	else
-		ft_putchar((c + '0'), length);
+		ft_putchar(c + '0', length);
 }

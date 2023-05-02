@@ -6,7 +6,7 @@
 /*   By: lcampos- <lcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 15:04:18 by lcampos-          #+#    #+#             */
-/*   Updated: 2023/04/26 23:15:45 by lcampos-         ###   ########.fr       */
+/*   Updated: 2023/05/02 16:12:49 by lcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,27 @@ void	ft_everyfunction(va_list arg, char c, int *length)
 		ft_putchar(va_arg(arg, int), length);
 	if (c == 's')
 		ft_putstr(va_arg(arg, char *), length);
-	if (c == 'd' || c == 'i' || c == 'u')
+	if (c == 'd')
+		ft_putnbr(va_arg(arg, int), length);
+	if (c == 'i')
+		ft_putnbr(va_arg(arg, int), length);
+	if (c == 'u')
 		ft_putnbr(va_arg(arg, unsigned int), length);
-	if (c == 'p' || c == 'x' || c == 'X')
-		ft_hexadecimal(va_arg(arg, unsigned int), length);
+	if (c == 'x')
+		ft_smallhexadecimal(va_arg(arg, unsigned int), length);
+	if (c == 'X')
+		ft_bighexadecimal(va_arg(arg, unsigned int), length);
+	if (c == 'p')
+		ft_putaddress(va_arg(arg, size_t), length);
 	if (c == '%')
 		ft_putchar('%', length);
 }
 
 int	ft_printf(const char *data, ...)
 {
-	int i;
-	int length;
-	va_list arg;
+	int		i;
+	int		length;
+	va_list	arg;
 
 	i = 0;
 	length = 0;

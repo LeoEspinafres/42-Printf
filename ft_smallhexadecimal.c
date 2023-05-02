@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_smallhexadecimal.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcampos- <lcampos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 17:39:54 by lcampos-          #+#    #+#             */
-/*   Updated: 2023/05/02 15:14:51 by lcampos-         ###   ########.fr       */
+/*   Created: 2023/05/02 15:05:04 by lcampos-          #+#    #+#             */
+/*   Updated: 2023/05/02 15:34:58 by lcampos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(int c, int *length)
+void	ft_smallhexadecimal(unsigned int c, int *length)
 {
-	*length += 1;
-	write(1, &c, 1);
+	long int	nr;
+	char		*hex;
+
+	hex = "0123456789abcdef";
+	nr = c;
+	if (nr / 16 == 0)
+		ft_putchar(hex[nr % 16], length);
+	else
+	{
+		ft_smallhexadecimal(nr / 16, length);
+		ft_putchar(hex[nr % 16], length);
+	}
 }
