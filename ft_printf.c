@@ -19,13 +19,9 @@ void	ft_everyfunction(va_list arg, char c, int *length)
 	if (c == 's')
 		ft_putstr(va_arg(arg, char *), length);
 	if (c == 'd' || c == 'i' || c == 'u')
-		ft_putnbr(va_arg(arg, size_t), length);
-	// if (c == 'p')
-	// 	ft_hexadecimal(c);
-	// if (c == 'x')
-	// 	ft_hexadecimal( c);
-	// if (c == 'X')
-	// 	ft_hexadecimal( c);
+		ft_putnbr(va_arg(arg, unsigned int), length);
+	if (c == 'p' || c == 'x' || c == 'X')
+		ft_hexadecimal(va_arg(arg, unsigned int), length);
 	if (c == '%')
 		ft_putchar('%', length);
 }

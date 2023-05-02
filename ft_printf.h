@@ -21,5 +21,7 @@
 int		ft_printf(const char *data, ...);
 void	ft_putchar(int c, int *length);
 void	ft_putstr(char *c, int *length);
+void	ft_putnbr(int c, int *length);
+void	ft_hexadecimal(unsigned int c, int *length);
 
 #endif

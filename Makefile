@@ -8,7 +8,9 @@ RM = rm -f
 
 SRC = 	ft_putchar.c \
 		ft_whileloop.c \
-		ft_putstr.c
+		ft_putstr.c \
+		ft_putnbr.c \
+		ft_puthex.c
 
 OBJ = $(SRC:.c=.o)
 
